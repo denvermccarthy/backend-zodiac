@@ -16,6 +16,13 @@ describe('zodiac routes', () => {
     expect(res.body).toEqual(expected);
   });
 
+  test('/zodiac/:id should return a single sign matching the id', async () => {
+    const res = await request(app).get('/zodiac/9');
+    const expected = { id: '9', name: 'sagittarius' };
+
+    expect(res.body).toEqual(expected);
+  });
+
   afterAll(() => {
     pool.end();
   });
